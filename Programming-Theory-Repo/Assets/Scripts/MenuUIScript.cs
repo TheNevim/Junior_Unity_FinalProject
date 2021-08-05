@@ -6,33 +6,42 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
-
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class MenuUIScript : MonoBehaviour
 {
     
     List<String> animalPlayer = new List<string>() { "Dog", "Cat", "Deer" };
-    
-    
+
+    [SerializeField] private InputField playerName;
     [SerializeField] private TextMeshProUGUI animalField;
     
     // Start is called before the first frame update
     void Start()
     {
         animalField.text = animalPlayer.First();
-        }
+    }
     
     public void StartGame()
     {
         GameManager.Instance.playerAnimal = animalField.text;
+        GameManager.Instance.playerName = playerName.text;
         SceneManager.LoadScene(1);
     }
 
     public void ExitGame()
     {
-        
+#if UNITY_EDITOR
+        EditorApplication.ExitPlaymode();
+       
+#else
+        Application.Quit(); // original code to quit Unity player
+#endif
     }
 
     public void ChooseNextAnimal()
