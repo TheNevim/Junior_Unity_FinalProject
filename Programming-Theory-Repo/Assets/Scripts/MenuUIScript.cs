@@ -16,7 +16,7 @@ using UnityEditor;
 public class MenuUIScript : MonoBehaviour
 {
     
-    List<String> animalPlayer = new List<string>() { "Dog", "Cat", "Deer" };
+    List<String> animalPlayer = new List<string>() { "Dog", "Chicken", "Fox" };
 
     [SerializeField] private InputField playerName;
     [SerializeField] private TextMeshProUGUI animalField;
