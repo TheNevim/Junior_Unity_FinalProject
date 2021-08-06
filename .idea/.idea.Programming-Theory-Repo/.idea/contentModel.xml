@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\pukdo\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\pukdo\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Programming-Theory-Repo.397956763.00" t="ExcludeRecursive" />
-    <e p="C:\Users\pukdo\Desktop\Projects\Unity Junior 1\Programming-Theory-Repo\Programming-Theory-Repo" t="IncludeRecursive">
+    <e p="C:\Users\pukdo\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Programming-Theory-Repo.-1018944239.00" t="ExcludeRecursive" />
+    <e p="C:\Users\pukdo\Desktop\Projects\Unity Junior 1\Programming-Theory-Repo" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Course Library" t="Include">
+          <e p="_Source_Files" t="Include">
+            <e p="_LICENSE.txt" t="Include" />
+          </e>
+        </e>
         <e p="Scripts" t="Include">
+          <e p="Animal.cs" t="Include" />
+          <e p="Dog.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="MenuUIScript.cs" t="Include" />
         </e>
