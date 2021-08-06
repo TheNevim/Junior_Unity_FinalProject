@@ -15,6 +15,7 @@
           <e p="Animal.cs" t="Include" />
           <e p="Chicken.cs" t="Include" />
           <e p="Dog.cs" t="Include" />
+          <e p="Fox.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="MenuUIScript.cs" t="Include" />
         </e>
