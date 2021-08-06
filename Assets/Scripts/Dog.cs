@@ -12,6 +12,10 @@ public class Dog : Animal
 
     protected override void Jump()
     {
-        animalRb.AddForce(Vector3.up * jumpPower,ForceMode.Impulse);
+        if (base.isGrounded)
+        {
+            animalRb.AddForce(Vector3.up * jumpPower,ForceMode.Impulse);
+        }
+        
     }
 }

@@ -31,11 +31,11 @@ public abstract class Animal : MonoBehaviour
     void Update()
     {
         //Jump if space is pressed
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            isGrounded = false;
             animalAnim.SetFloat("Speed_f", 0f);
             Jump();
+            isGrounded = false;
         }
         
         //Get horizontal input
