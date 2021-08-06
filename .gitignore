@@ -36,6 +36,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 *.log
-*.log
-Programming-Theory-Repo/Logs/shadercompiler-UnityShaderCompiler.exe0.log
-*.log
+*.exe
