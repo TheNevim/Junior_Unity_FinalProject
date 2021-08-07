@@ -7,6 +7,7 @@ public class Dog : Animal
     // Start is called before the first frame update
     private float animalSpeed = 7f;
     protected override float speed => animalSpeed;
+    protected override bool isAttacking { get; set; } = false;
 
     private float jumpPower = 230f;
 

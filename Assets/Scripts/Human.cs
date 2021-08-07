@@ -51,7 +51,7 @@ public class Human : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Animal"))
+        if (other.gameObject.CompareTag("Egg"))
         {
             healt--;
             healtBar.value = healt;

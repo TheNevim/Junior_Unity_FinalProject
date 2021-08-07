@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: rightBound
       value: 142
       objectReference: {fileID: 0}
+    - target: {fileID: 3012904089107352682, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
 --- !u!1 &76225751
@@ -568,7 +572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 441440, guid: e3245acddde40bf49aa555d6bdc14998, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.06
+      value: -6.16
       objectReference: {fileID: 0}
     - target: {fileID: 441440, guid: e3245acddde40bf49aa555d6bdc14998, type: 3}
       propertyPath: m_LocalPosition.y
@@ -608,11 +612,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3245acddde40bf49aa555d6bdc14998, type: 3}
---- !u!1 &256112148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 127546, guid: e3245acddde40bf49aa555d6bdc14998, type: 3}
-  m_PrefabInstance: {fileID: 256112147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &272372474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1001,6 +1000,10 @@ PrefabInstance:
       propertyPath: rightBound
       value: 117
       objectReference: {fileID: 0}
+    - target: {fileID: 3012904089107352682, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
 --- !u!1001 &474833434
@@ -1069,6 +1072,10 @@ PrefabInstance:
     - target: {fileID: 2988496474468758781, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
       propertyPath: rightBound
       value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012904089107352682, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
@@ -1401,6 +1408,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6106902581351990071, guid: 9bf484c5ec3d3bf43b2034c829f1abbe, type: 3}
+      propertyPath: egg
+      value: 
+      objectReference: {fileID: 7451873878174342962, guid: 4bfd4b5a34d97a441a490e9d3ce2d5d2, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf484c5ec3d3bf43b2034c829f1abbe, type: 3}
 --- !u!1001 &725210228
@@ -1531,6 +1542,10 @@ PrefabInstance:
     - target: {fileID: 2988496474468758781, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
       propertyPath: rightBound
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012904089107352682, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
@@ -1692,7 +1707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be076b62cfe4b4c4784ef00869569962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 256112148}
+  player: {fileID: 1607059960}
 --- !u!1001 &869694276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3736,6 +3751,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7441518643551616086, guid: 5962eb19b74c8c84cb73fe4bcf4be49d, type: 3}
   m_PrefabInstance: {fileID: 1601758503}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1607059960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 120214, guid: 9bf484c5ec3d3bf43b2034c829f1abbe, type: 3}
+  m_PrefabInstance: {fileID: 719440422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1666944121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4672,6 +4692,10 @@ PrefabInstance:
     - target: {fileID: 2988496474468659766, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
       propertyPath: m_Name
       value: Human
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012904089107352682, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef4133a8e2c515f47bbd783874d6c99c, type: 3}

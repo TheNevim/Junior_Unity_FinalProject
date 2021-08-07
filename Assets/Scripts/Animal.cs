@@ -13,6 +13,12 @@ public abstract class Animal : MonoBehaviour
     {
         get;
     }
+    
+    protected abstract bool isAttacking
+    {
+        get;
+        set;
+    }
 
     protected bool isGrounded = true;
 
@@ -36,6 +42,11 @@ public abstract class Animal : MonoBehaviour
             animalAnim.SetFloat("Speed_f", 0f);
             Jump();
             isGrounded = false;
+        }
+        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Attack();
         }
         
         //Get horizontal input
@@ -72,6 +83,7 @@ public abstract class Animal : MonoBehaviour
     }
 
     protected virtual void Jump() { }
+    protected virtual void Attack() { }
 
     private void OnCollisionEnter(Collision other)
     {

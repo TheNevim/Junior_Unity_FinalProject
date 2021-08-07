@@ -6,6 +6,7 @@ public class Fox : Animal
 {
     private float animalSpeed = 15f;
     protected override float speed => animalSpeed;
+    protected override bool isAttacking { get; set; } = false;
     
     private float jumpPower = 200f;
 
