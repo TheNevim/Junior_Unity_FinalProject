@@ -80,4 +80,9 @@ public abstract class Animal : MonoBehaviour
             isGrounded = true;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //TODO
+    }
 }
