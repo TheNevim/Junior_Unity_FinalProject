@@ -59,27 +59,28 @@ public abstract class Animal : MonoBehaviour
         }
         else
         {
-            if (horizontalInput > 0)
+            if (!isAttacking)
             {
-                // Right arrow presed -> move forward at animal speed
-                transform.Translate(Vector3.forward * Time.deltaTime * speed * horizontalInput);
-                //Look right
-                transform.rotation = Quaternion.Euler(0,90f,0);
-                //Start animation
-                animalAnim.SetFloat("Speed_f", 0.5f);
-            }
-            else
-            {
-                // Left arrow presed -> move back at animal speed
-                transform.Translate(Vector3.back * Time.deltaTime * speed * horizontalInput);
-                //Look left
-                transform.rotation = Quaternion.Euler(0,-90f,0);
-                //Start animation
-                animalAnim.SetFloat("Speed_f", 0.5f);
+                if (horizontalInput > 0)
+                {
+                    // Right arrow presed -> move forward at animal speed
+                    transform.Translate(Vector3.forward * Time.deltaTime * speed * horizontalInput);
+                    //Look right
+                    transform.rotation = Quaternion.Euler(0,90f,0);
+                    //Start animation
+                    animalAnim.SetFloat("Speed_f", 0.5f);
+                }
+                else
+                {
+                    // Left arrow presed -> move back at animal speed
+                    transform.Translate(Vector3.back * Time.deltaTime * speed * horizontalInput);
+                    //Look left
+                    transform.rotation = Quaternion.Euler(0,-90f,0);
+                    //Start animation
+                    animalAnim.SetFloat("Speed_f", 0.5f);
+                } 
             }
         }
-        
-        
     }
 
     protected virtual void Jump() { }

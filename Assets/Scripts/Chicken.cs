@@ -12,8 +12,7 @@ public class Chicken : Animal
     private float jumpPower = 10f;
     private int jumpCount = 3;
 
-    private bool hasLayedEgg = false;
-
+    private bool hasLayedegg = false;
     protected override void Jump()
     {
         if (jumpCount > 0)
@@ -25,10 +24,10 @@ public class Chicken : Animal
 
     protected override void Attack()
     {
-        if (!hasLayedEgg && isGrounded)
+        if (!isAttacking && isGrounded && !hasLayedegg)
         {
             isAttacking = true;
-            hasLayedEgg = true;
+            hasLayedegg = true;
             Instantiate(egg, gameObject.transform.FindChild("Cloaka").position, gameObject.transform.rotation);
             StartCoroutine(ResetLayedEgg());
         }
@@ -36,8 +35,10 @@ public class Chicken : Animal
 
     IEnumerator ResetLayedEgg()
     {
-        yield return new WaitForSeconds(1.5f);
-        hasLayedEgg = false;
+        yield return new WaitForSeconds(1f);
+        isAttacking = false;
+        yield return new WaitForSeconds(1f);
+        hasLayedegg = false;
     }
 
     private void OnCollisionEnter(Collision other)

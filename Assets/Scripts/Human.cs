@@ -61,4 +61,14 @@ public class Human : MonoBehaviour
             }
         }
     }
+
+    public void ApplyDamage(int damage)
+    {
+        healt -= damage;
+        if (healt < 0)
+        {
+            Destroy(gameObject);
+        }
+        healtBar.value = healt;
+    }
 }
