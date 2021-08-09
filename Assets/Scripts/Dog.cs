@@ -19,4 +19,9 @@ public class Dog : Animal
         }
         
     }
+
+    protected override void Attack()
+    {
+        //animalAnim.SetBool("Bark_b", true);
+    }
 }

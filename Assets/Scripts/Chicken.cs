@@ -29,7 +29,7 @@ public class Chicken : Animal
         {
             isAttacking = true;
             hasLayedEgg = true;
-            Instantiate(egg, transform.position, gameObject.transform.rotation);
+            Instantiate(egg, gameObject.transform.FindChild("Cloaka").position, gameObject.transform.rotation);
             StartCoroutine(ResetLayedEgg());
         }
     }

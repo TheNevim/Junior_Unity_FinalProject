@@ -1225,6 +1225,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.4597009, y: 0.13234866, z: 0.5536318}
   m_Center: {x: 0, y: 2.752857e-21, z: -0.00000019371514}
+--- !u!1 &698938439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 698938440}
+  m_Layer: 0
+  m_Name: Cloaka
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &698938440
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698938439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 7.6, z: -8.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1607059965}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &708512987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3754,6 +3784,11 @@ Transform:
 --- !u!1 &1607059960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 120214, guid: 9bf484c5ec3d3bf43b2034c829f1abbe, type: 3}
+  m_PrefabInstance: {fileID: 719440422}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1607059965 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 476096, guid: 9bf484c5ec3d3bf43b2034c829f1abbe, type: 3}
   m_PrefabInstance: {fileID: 719440422}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1666944121

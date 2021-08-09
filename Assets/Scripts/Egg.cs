@@ -33,4 +33,19 @@ public class Egg : MonoBehaviour
         }
         
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Animal"))
+        {
+            Physics.IgnoreCollision(other.gameObject.GetComponent<BoxCollider>(), gameObject.GetComponent<CapsuleCollider>());
+        }
+        
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
+        
+        
+    }
 }
