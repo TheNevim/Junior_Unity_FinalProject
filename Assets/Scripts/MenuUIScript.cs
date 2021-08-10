@@ -20,6 +20,7 @@ public class MenuUIScript : MonoBehaviour
 
     [SerializeField] private InputField playerName;
     [SerializeField] private TextMeshProUGUI animalField;
+    [SerializeField] private TextMeshProUGUI topScoreTable;
     
     // Start is called before the first frame update
     void Start()
