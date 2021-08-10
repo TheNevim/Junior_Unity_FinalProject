@@ -6,8 +6,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
-    public string playerAnimal
-    {
+
+    public string playerAnimal;
+    /*{
+        get => playerAnimal;
         set
         {
             if (value != null && value is string )
@@ -15,10 +17,10 @@ public class GameManager : MonoBehaviour
                 playerAnimal = value;
             }
         }
-    }
-    
-    public string playerName
-    {
+    }*/
+
+    public string playerName;
+    /*{
         set
         {
             if (value != null && value is string )
@@ -26,7 +28,7 @@ public class GameManager : MonoBehaviour
                 playerName = value;
             }
         }
-    }
+    }*/
     
     void Awake()
     {

@@ -96,7 +96,10 @@ public abstract class Animal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //TODO
+        if (other.CompareTag("Food"))
+        {
+            Debug.Log("got food");
+        }
     }
     
     
