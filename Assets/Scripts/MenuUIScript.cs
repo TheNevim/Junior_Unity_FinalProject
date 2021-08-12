@@ -22,9 +22,22 @@ public class MenuUIScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI animalField;
     [SerializeField] private TextMeshProUGUI topScoreTable;
     
+    private int topTableNumber = 5;
+    
     // Start is called before the first frame update
     void Start()
     {
+        List<GameManager.SaveData> scoreTable = GameManager.Instance.LoadPlayersTable();
+        if (scoreTable.Count < topTableNumber)
+        {
+            topTableNumber = scoreTable.Count;
+        }
+        for (int i = 0; i < topTableNumber; i++)
+        {
+            GameManager.SaveData readData = scoreTable.ElementAt(i);
+            topScoreTable.text += readData.playerName + "\t\t" + readData.animal + "\t\t" + readData.level + "\t" +
+                                  readData.score + "\n";
+        }
         animalField.text = animalPlayer.First();
     }
     
