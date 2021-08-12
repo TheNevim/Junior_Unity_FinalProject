@@ -21,6 +21,13 @@ public abstract class Animal : MonoBehaviour
     }
 
     protected bool isGrounded = true;
+    private bool isAlive = true;
+    
+    protected abstract int healt
+    {
+        get;
+        set;
+    }
 
     private void Awake()
     {
@@ -37,14 +44,14 @@ public abstract class Animal : MonoBehaviour
     void Update()
     {
         //Jump if space is pressed
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isAlive)
         {
             animalAnim.SetFloat("Speed_f", 0f);
             Jump();
             isGrounded = false;
         }
         
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && isAlive)
         {
             Attack();
         }
@@ -59,7 +66,7 @@ public abstract class Animal : MonoBehaviour
         }
         else
         {
-            if (!isAttacking)
+            if (!isAttacking && isAlive)
             {
                 if (horizontalInput > 0)
                 {
@@ -100,6 +107,17 @@ public abstract class Animal : MonoBehaviour
         {
             Debug.Log("got food");
         }
+        
+        if (other.CompareTag("Human"))
+        {
+            healt--;
+            if (healt == 0)
+            {
+                GameManager.Instance.SavePlayerName(1);
+                isAlive = false;
+            }
+        }
+        
     }
     
     
