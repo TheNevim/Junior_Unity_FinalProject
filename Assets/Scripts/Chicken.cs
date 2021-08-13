@@ -8,7 +8,7 @@ public class Chicken : Animal
     private float animalSpeed = 10f;
     protected override float speed => animalSpeed;
     protected override bool isAttacking { get; set; } = false;
-    protected override int healt { get; set; }
+    protected override int healt { get; set; } = 2;
 
     private float jumpPower = 10f;
     private int jumpCount = 3;

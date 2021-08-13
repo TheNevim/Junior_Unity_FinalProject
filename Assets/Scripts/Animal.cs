@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public abstract class Animal : MonoBehaviour
 {
     protected Rigidbody animalRb;
     protected Animator animalAnim;
+
+    private TextMeshProUGUI lifeText;
+    private TextMeshProUGUI pointsText;
 
     private float horizontalInput = 0;
     protected abstract float speed
@@ -28,7 +32,8 @@ public abstract class Animal : MonoBehaviour
         get;
         set;
     }
-
+    protected  int score = 0;
+    
     private void Awake()
     {
         animalRb = gameObject.GetComponent<Rigidbody>();
@@ -93,6 +98,15 @@ public abstract class Animal : MonoBehaviour
     protected virtual void Jump() { }
     protected virtual void Attack() { }
 
+    public virtual void setGameGui(TextMeshProUGUI life, TextMeshProUGUI points)
+    {
+        this.lifeText = life;
+        this.pointsText = points;
+
+        lifeText.text = "Live: " + healt;
+        pointsText.text = "Points " + score;
+    }
+    
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -113,12 +127,18 @@ public abstract class Animal : MonoBehaviour
             healt--;
             if (healt == 0)
             {
-                GameManager.Instance.SavePlayerName(1);
+                GameManager.Instance.SavePlayerName(score);
                 isAlive = false;
+
+                GameObject[] humans = GameObject.FindGameObjectsWithTag("Human");
+
+                for (int i = 0; i < humans.Length; i++)
+                {
+                    humans[i].GetComponent<Human>().enabled = false;
+                }
+                
+                GameObject.Find("GameOver").SetActive(true);
             }
         }
-        
     }
-    
-    
 }
