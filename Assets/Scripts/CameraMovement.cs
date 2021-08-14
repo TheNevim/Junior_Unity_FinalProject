@@ -27,6 +27,7 @@ public class CameraMovement : MonoBehaviour
                 var gameAnimal = Instantiate(animal, spawnPosition, animal.transform.rotation) ;
                 playerTransform = gameAnimal.GetComponent<Transform>();
                 gameAnimal.GetComponent<Animal>().setGameGui(lifeText,pointText);
+                gameAnimal.name = "Player";
                 break;
             }
         }

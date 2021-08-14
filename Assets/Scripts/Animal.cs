@@ -32,7 +32,8 @@ public abstract class Animal : MonoBehaviour
         get;
         set;
     }
-    protected  int score = 0;
+    protected int score = 0;
+    private int pointsPerLevel = 50;
     
     private void Awake()
     {
@@ -98,12 +99,18 @@ public abstract class Animal : MonoBehaviour
     protected virtual void Jump() { }
     protected virtual void Attack() { }
 
-    public virtual void setGameGui(TextMeshProUGUI life, TextMeshProUGUI points)
+    public void setGameGui(TextMeshProUGUI life, TextMeshProUGUI points)
     {
         this.lifeText = life;
         this.pointsText = points;
 
         lifeText.text = "Live: " + healt;
+        pointsText.text = "Points " + score;
+    }
+
+    public void AddHumanPoints(int pointsPerHuman)
+    {
+        score += pointsPerHuman;
         pointsText.text = "Points " + score;
     }
     
@@ -125,6 +132,8 @@ public abstract class Animal : MonoBehaviour
         if (other.CompareTag("Human"))
         {
             healt--;
+            lifeText.text = "Live: " + healt;
+            
             if (healt == 0)
             {
                 GameManager.Instance.SavePlayerName(score);
@@ -135,9 +144,11 @@ public abstract class Animal : MonoBehaviour
                 for (int i = 0; i < humans.Length; i++)
                 {
                     humans[i].GetComponent<Human>().enabled = false;
+                    humans[i].GetComponent<Animator>().SetFloat("Speed_f", 0);
                 }
                 
-                GameObject.Find("GameOver").SetActive(true);
+                var restart = GameObject.Find("GameOver");
+                restart.SetActive(true);
             }
         }
     }

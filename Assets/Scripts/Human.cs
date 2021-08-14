@@ -9,6 +9,8 @@ public class Human : MonoBehaviour
 {
     [SerializeField] private int healt = 5;
 
+    [SerializeField] private int points;
+
     [SerializeField] private float leftBound;
 
     [SerializeField] private float rightBound;
@@ -47,6 +49,12 @@ public class Human : MonoBehaviour
         
         healtBar.transform.rotation = Quaternion.identity;
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        
+        if (healt <= 0)
+        {
+            GameObject.Find("Player").GetComponent<Animal>().AddHumanPoints(points);
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -55,20 +63,12 @@ public class Human : MonoBehaviour
         {
             healt--;
             healtBar.value = healt;
-            if (healt == 0)
-            {
-                Destroy(gameObject);
-            }
         }
     }
 
     public void ApplyDamage(int damage)
     {
         healt -= damage;
-        if (healt < 0)
-        {
-            Destroy(gameObject);
-        }
         healtBar.value = healt;
     }
 }
