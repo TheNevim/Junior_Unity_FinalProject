@@ -1,12 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public abstract class Animal : MonoBehaviour
 {
     protected Rigidbody animalRb;
     protected Animator animalAnim;
+
+    private TextMeshProUGUI lifeText;
+    private TextMeshProUGUI pointsText;
 
     private float horizontalInput = 0;
     protected abstract float speed
@@ -21,7 +25,16 @@ public abstract class Animal : MonoBehaviour
     }
 
     protected bool isGrounded = true;
-
+    private bool isAlive = true;
+    
+    protected abstract int healt
+    {
+        get;
+        set;
+    }
+    protected int score = 0;
+    private int pointsPerLevel = 50;
+    
     private void Awake()
     {
         animalRb = gameObject.GetComponent<Rigidbody>();
@@ -37,14 +50,14 @@ public abstract class Animal : MonoBehaviour
     void Update()
     {
         //Jump if space is pressed
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isAlive)
         {
             animalAnim.SetFloat("Speed_f", 0f);
             Jump();
             isGrounded = false;
         }
         
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F) && isAlive)
         {
             Attack();
         }
@@ -59,7 +72,7 @@ public abstract class Animal : MonoBehaviour
         }
         else
         {
-            if (!isAttacking)
+            if (!isAttacking && isAlive)
             {
                 if (horizontalInput > 0)
                 {
@@ -86,6 +99,21 @@ public abstract class Animal : MonoBehaviour
     protected virtual void Jump() { }
     protected virtual void Attack() { }
 
+    public void setGameGui(TextMeshProUGUI life, TextMeshProUGUI points)
+    {
+        this.lifeText = life;
+        this.pointsText = points;
+
+        lifeText.text = "Live: " + healt;
+        pointsText.text = "Points " + score;
+    }
+
+    public void AddHumanPoints(int pointsPerHuman)
+    {
+        score += pointsPerHuman;
+        pointsText.text = "Points " + score;
+    }
+    
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -100,7 +128,30 @@ public abstract class Animal : MonoBehaviour
         {
             Debug.Log("got food");
         }
+        
+        if (other.CompareTag("Human"))
+        {
+            healt--;
+            lifeText.text = "Live: " + healt;
+            
+            if (healt == 0)
+            {
+                GameManager.Instance.SavePlayerName(score);
+                isAlive = false;
+                
+                GameObject[] humans = GameObject.FindGameObjectsWithTag("Human");
+
+                for (int i = 0; i < humans.Length; i++)
+                {
+                    humans[i].GetComponent<Human>().enabled = false;
+                    humans[i].GetComponent<Animator>().SetFloat("Speed_f", 0);
+                }
+
+                GameObject filenamefld = GameManager.Instance.FindGameobject("Main Camera", "GameOver");
+                filenamefld.SetActive(true);
+                
+                // GameObject.Find("ActiveParentsName").transform.Find("InactiveChildsName").gameObject;
+            }
+        }
     }
-    
-    
 }
