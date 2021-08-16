@@ -138,7 +138,7 @@ public abstract class Animal : MonoBehaviour
             {
                 GameManager.Instance.SavePlayerName(score);
                 isAlive = false;
-
+                
                 GameObject[] humans = GameObject.FindGameObjectsWithTag("Human");
 
                 for (int i = 0; i < humans.Length; i++)
@@ -146,9 +146,11 @@ public abstract class Animal : MonoBehaviour
                     humans[i].GetComponent<Human>().enabled = false;
                     humans[i].GetComponent<Animator>().SetFloat("Speed_f", 0);
                 }
+
+                GameObject filenamefld = GameManager.Instance.FindGameobject("Main Camera", "GameOver");
+                filenamefld.SetActive(true);
                 
-                var restart = GameObject.Find("GameOver");
-                restart.SetActive(true);
+                // GameObject.Find("ActiveParentsName").transform.Find("InactiveChildsName").gameObject;
             }
         }
     }

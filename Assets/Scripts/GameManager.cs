@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -102,6 +103,30 @@ public class GameManager : MonoBehaviour
             this.level = level;
             this.score = score;
         }
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void RetryGame()
+    {
+        SceneManager.LoadScene(GameObject.Find("GameManager").GetComponent<GameManager>().level);
+    }
+
+    public GameObject FindGameobject(string parent, string child)
+    {
+        GameObject filenamefld = null;
+        Transform[] trans = GameObject.Find(parent).GetComponentsInChildren<Transform>(true);
+        foreach (Transform t in trans) {
+            if (t.gameObject.name == child) {
+                filenamefld = t.gameObject;
+                break;
+            }
+        }
+
+        return filenamefld;
     }
     
 }

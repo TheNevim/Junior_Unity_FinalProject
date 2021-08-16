@@ -39,12 +39,24 @@ public class MenuUIScript : MonoBehaviour
                                   readData.score + "\n";
         }
         animalField.text = animalPlayer.First();
+
+        if (GameManager.Instance.playerName != null)
+        {
+            playerName.text = GameManager.Instance.playerName;
+        }
     }
     
     public void StartGame()
     {
+        if (string.IsNullOrEmpty(playerName.text))
+        {
+            EditorUtility.DisplayDialog("Player name not set",
+                "Please enter player name", "Ok");
+            return;
+        }
         GameManager.Instance.playerAnimal = animalField.text;
         GameManager.Instance.playerName = playerName.text;
+        GameManager.Instance.level = 1;
         SceneManager.LoadScene(1);
     }
 

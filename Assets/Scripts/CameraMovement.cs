@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CameraMovement : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class CameraMovement : MonoBehaviour
                 var gameAnimal = Instantiate(animal, spawnPosition, animal.transform.rotation) ;
                 playerTransform = gameAnimal.GetComponent<Transform>();
                 gameAnimal.GetComponent<Animal>().setGameGui(lifeText,pointText);
+                
                 gameAnimal.name = "Player";
                 break;
             }
