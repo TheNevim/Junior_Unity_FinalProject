@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
 
     public int level;
 
+    public int score = 0;
+
     void Awake()
     {
         if (Instance != null)
@@ -36,7 +39,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public List<SaveData> LoadPlayersTable()
+    public List<SaveData> LoadPlayersTable(int points)
     {
         string path = Application.persistentDataPath + "/players.json";
         if (File.Exists(path))
@@ -49,6 +52,11 @@ public class GameManager : MonoBehaviour
             for (int i = 0; i < lines.Length; i++)
             {
                 SaveData readData = JsonUtility.FromJson<SaveData>(lines[i]);
+                if (readData.playerName == GameManager.Instance.playerName &&
+                    readData.animal == GameManager.Instance.playerAnimal && readData.score <= points)
+                {
+                    continue;
+                }
                 scoreTable.Add(readData);
             }
             return scoreTable;
@@ -60,7 +68,7 @@ public class GameManager : MonoBehaviour
     
     public void SavePlayerName(int points)
     {
-        List<SaveData> scoreTable = LoadPlayersTable();
+        List<SaveData> scoreTable = LoadPlayersTable(points);
 
         if (scoreTable == null)
         { 
@@ -105,13 +113,30 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void WonGame()
+    {
+        bool decision = EditorUtility.DisplayDialog("Player name not set",
+            "Please enter player name", "Menu");
+        if (decision)
+        {
+            Invoke(nameof(ReturnToMenu),2f);
+        }
+    }
+
     public void ReturnToMenu()
     {
+        GameManager.Instance.score = 0;
         SceneManager.LoadScene(0);
     }
 
     public void RetryGame()
     {
+        SceneManager.LoadScene(GameObject.Find("GameManager").GetComponent<GameManager>().level);
+    }
+    
+    public void NextLevel()
+    {
+        level++;
         SceneManager.LoadScene(GameObject.Find("GameManager").GetComponent<GameManager>().level);
     }
 

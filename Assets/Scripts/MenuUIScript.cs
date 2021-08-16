@@ -27,7 +27,7 @@ public class MenuUIScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        List<GameManager.SaveData> scoreTable = GameManager.Instance.LoadPlayersTable();
+        List<GameManager.SaveData> scoreTable = GameManager.Instance.LoadPlayersTable(0);
         if (scoreTable.Count < topTableNumber)
         {
             topTableNumber = scoreTable.Count;

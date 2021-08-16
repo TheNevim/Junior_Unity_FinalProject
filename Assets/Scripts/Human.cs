@@ -52,7 +52,7 @@ public class Human : MonoBehaviour
         
         if (healt <= 0)
         {
-            GameObject.Find("Player").GetComponent<Animal>().AddHumanPoints(points);
+            GameManager.Instance.score += points;
             Destroy(gameObject);
         }
     }

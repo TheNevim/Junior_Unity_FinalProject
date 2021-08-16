@@ -32,7 +32,7 @@ public abstract class Animal : MonoBehaviour
         get;
         set;
     }
-    protected int score = 0;
+    
     private int pointsPerLevel = 50;
     
     private void Awake()
@@ -55,6 +55,11 @@ public abstract class Animal : MonoBehaviour
             animalAnim.SetFloat("Speed_f", 0f);
             Jump();
             isGrounded = false;
+        }
+
+        if (transform.position.y < -10 && isAlive)
+        {
+            GameOver();
         }
         
         if (Input.GetKeyDown(KeyCode.F) && isAlive)
@@ -105,15 +110,9 @@ public abstract class Animal : MonoBehaviour
         this.pointsText = points;
 
         lifeText.text = "Live: " + healt;
-        pointsText.text = "Points " + score;
+        pointsText.text = "Points " + GameManager.Instance.score;
     }
 
-    public void AddHumanPoints(int pointsPerHuman)
-    {
-        score += pointsPerHuman;
-        pointsText.text = "Points " + score;
-    }
-    
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -122,11 +121,36 @@ public abstract class Animal : MonoBehaviour
         }
     }
 
+    private void GameOver()
+    {
+        GameManager.Instance.SavePlayerName(GameManager.Instance.score);
+        isAlive = false;
+                
+        GameObject[] humans = GameObject.FindGameObjectsWithTag("Human");
+
+        for (int i = 0; i < humans.Length; i++)
+        {
+            humans[i].GetComponent<Human>().enabled = false;
+            humans[i].GetComponent<Animator>().SetFloat("Speed_f", 0);
+        }
+
+        GameObject filenamefld = GameManager.Instance.FindGameobject("Main Camera", "GameOver");
+        filenamefld.SetActive(true);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Food"))
         {
-            Debug.Log("got food");
+            GameManager.Instance.score += 50;
+
+            if (GameManager.Instance.level == 2)
+            {
+                GameOver();
+                GameManager.Instance.WonGame();
+                return;
+            }
+            GameManager.Instance.NextLevel();
         }
         
         if (other.CompareTag("Human"))
@@ -136,21 +160,7 @@ public abstract class Animal : MonoBehaviour
             
             if (healt == 0)
             {
-                GameManager.Instance.SavePlayerName(score);
-                isAlive = false;
-                
-                GameObject[] humans = GameObject.FindGameObjectsWithTag("Human");
-
-                for (int i = 0; i < humans.Length; i++)
-                {
-                    humans[i].GetComponent<Human>().enabled = false;
-                    humans[i].GetComponent<Animator>().SetFloat("Speed_f", 0);
-                }
-
-                GameObject filenamefld = GameManager.Instance.FindGameobject("Main Camera", "GameOver");
-                filenamefld.SetActive(true);
-                
-                // GameObject.Find("ActiveParentsName").transform.Find("InactiveChildsName").gameObject;
+                GameOver();
             }
         }
     }

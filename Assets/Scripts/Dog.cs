@@ -10,7 +10,7 @@ public class Dog : Animal
     protected override bool isAttacking { get; set; } = false;
     protected override int healt { get; set; } = 3;
 
-    private float jumpPower = 250f;
+    private float jumpPower = 260f;
 
     protected override void Jump()
     {
