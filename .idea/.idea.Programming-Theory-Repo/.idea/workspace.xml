@@ -11,11 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7d0da22-3206-46b4-a8d7-dcb07ff39d4e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Programming-Theory-Repo/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Programming-Theory-Repo/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Programming-Theory-Repo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Programming-Theory-Repo/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level_2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Chicken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Chicken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dog.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dog.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,14 +38,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Egg.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Fox.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Human.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Animal.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Chicken.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Dog.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Fox.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/CameraMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MenuUIScript.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Dog.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Chicken.cs" />
       </list>
     </option>
   </component>
@@ -105,7 +104,7 @@
       <workItem from="1628922774582" duration="3287000" />
       <workItem from="1628929825725" duration="1863000" />
       <workItem from="1629111307033" duration="8001000" />
-      <workItem from="1629202976975" duration="795000" />
+      <workItem from="1629202976975" duration="2071000" />
     </task>
     <servers />
   </component>

@@ -10,15 +10,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public string playerAnimal
-    //Encapsulation
+    private string _playerAnimal;
+    
+    public string playerAnimal 
+        //Encapsulation
     {
-        get => playerAnimal;
+        get
+        {
+            return _playerAnimal;
+        }
         set
         {
             if (value != null && value is string )
             {
-                playerAnimal = value;
+                _playerAnimal = value;
             }
         }
     }
