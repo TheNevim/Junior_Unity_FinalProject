@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Dog : Animal
 {
     // Start is called before the first frame update
@@ -12,6 +13,7 @@ public class Dog : Animal
 
     private float jumpPower = 260f;
 
+    //POLYMORPHISM
     protected override void Jump()
     {
         if (base.isGrounded)
@@ -29,6 +31,7 @@ public class Dog : Animal
         isAttacking = false;
     }
 
+    //POLYMORPHISM
     protected override void Attack()
     {
         if (isGrounded && !isAttacking)

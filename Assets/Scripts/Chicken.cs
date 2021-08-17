@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// INHERITANCE
 public class Chicken : Animal
 {
     [SerializeField] private GameObject egg;
@@ -14,6 +15,8 @@ public class Chicken : Animal
     private int jumpCount = 3;
 
     private bool hasLayedegg = false;
+    
+    //POLYMORPHISM
     protected override void Jump()
     {
         if (jumpCount > 0)
@@ -23,6 +26,7 @@ public class Chicken : Animal
         }
     }
 
+    //POLYMORPHISM
     protected override void Attack()
     {
         if (!isAttacking && isGrounded && !hasLayedegg)

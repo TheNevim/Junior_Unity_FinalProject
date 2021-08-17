@@ -10,8 +10,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public string playerAnimal;
-    /*{
+    public string playerAnimal
+    //Encapsulation
+    {
         get => playerAnimal;
         set
         {
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
                 playerAnimal = value;
             }
         }
-    }*/
+    }
     public string playerName;
 
     public int level;
@@ -39,6 +40,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // ABSTRACTION
     public List<SaveData> LoadPlayersTable(int points)
     {
         string path = Application.persistentDataPath + "/players.json";
@@ -65,7 +67,7 @@ public class GameManager : MonoBehaviour
         return null;
     }
     
-    
+    // ABSTRACTION
     public void SavePlayerName(int points)
     {
         List<SaveData> scoreTable = LoadPlayersTable(points);
